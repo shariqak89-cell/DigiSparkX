@@ -106,7 +106,6 @@ export function DigiContactForm({ compact = false }: { compact?: boolean }) {
         </>
       )}
       <button className="button dark full" type="submit">Send enquiry <Send size={17} /></button>
-      <p className="form-note full">First submission may ask DigiSparkX to verify this email. After verification, all form messages will arrive at {company.email}.</p>
     </form>
   );
 }
