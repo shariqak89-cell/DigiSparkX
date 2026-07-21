@@ -108,7 +108,6 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             <a className="phone-link" href={`tel:${company.phone.replace(/\s/g, "")}`}><Phone fill="currentColor" /><span>{company.phone}</span></a>
             <button className="theme-toggle" type="button" onClick={() => setDark((value) => !value)} aria-label={dark ? "Light Mode" : "Night Mode"}>
               {dark ? <Sun size={17} /> : <Moon size={17} />}
-              <span>{dark ? "Light" : "Night"}</span>
             </button>
             <a className="button green small" href={whatsapp} target="_blank" rel="noreferrer">Get a Quote</a>
             <button className="menu-btn" aria-label="Toggle menu" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
@@ -134,7 +133,6 @@ function Footer() {
           <h3>Explore</h3>
           <Link href="/about">Our story</Link>
           <Link href="/services">All services</Link>
-          <Link href="/gallery">Work gallery</Link>
           <Link href="/contact">Request a quote</Link>
         </div>
         <div>

@@ -62,13 +62,13 @@ export default function HomePage() {
           <div className="video-grid">
             <article className="video-card">
               <video autoPlay muted loop playsInline preload="metadata">
-                <source src="https://videos.pexels.com/video-files/3195394/3195394-hd_1920_1080_25fps.mp4" type="video/mp4" />
+                <source src="https://videos.pexels.com/video-files/2278095/2278095-hd_1920_1080_30fps.mp4" type="video/mp4" />
               </video>
               <div><h3><PlayCircle size={26} /> Website Development</h3><p>Modern coding, design and web development learning.</p></div>
             </article>
             <article className="video-card">
               <video autoPlay muted loop playsInline preload="metadata">
-                <source src="https://videos.pexels.com/video-files/5900947/5900947-hd_1920_1080_25fps.mp4" type="video/mp4" />
+                <source src="https://videos.pexels.com/video-files/4495983/4495983-hd_1920_1080_25fps.mp4" type="video/mp4" />
               </video>
               <div><h3><PlayCircle size={26} /> Digital Marketing & AI</h3><p>Professional skills for growth, automation and online business.</p></div>
             </article>

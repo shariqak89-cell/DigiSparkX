@@ -10,8 +10,8 @@ fs.copyFileSync(logoSrc, path.join(logoDir, "digisparkx-logo-transparent.png"));
 
 const email = "digisparkxuniverse@gmail.com";
 const heroImage = "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80";
-const videoOne = "https://videos.pexels.com/video-files/3195394/3195394-hd_1920_1080_25fps.mp4";
-const videoTwo = "https://videos.pexels.com/video-files/5900947/5900947-hd_1920_1080_25fps.mp4";
+const videoOne = "https://videos.pexels.com/video-files/2278095/2278095-hd_1920_1080_30fps.mp4";
+const videoTwo = "https://videos.pexels.com/video-files/4495983/4495983-hd_1920_1080_25fps.mp4";
 
 const services = [
   ["Website Development", "Modern responsive websites built for trust, speed and lead generation.", "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80"],
@@ -33,7 +33,7 @@ const pages = [
   ["404", "404", "Page not found."]
 ];
 
-const nav = pages.filter(([s]) => ["index", "about", "services", "gallery", "contact"].includes(s)).map(([slug, title]) => `<a href="${slug === "index" ? "/DigiSparkX/" : `/DigiSparkX/${slug}/`}">${title}</a>`).join("");
+const nav = pages.filter(([s]) => ["index", "about", "services", "contact"].includes(s)).map(([slug, title]) => `<a href="${slug === "index" ? "/DigiSparkX/" : `/DigiSparkX/${slug}/`}">${title}</a>`).join("");
 const options = services.map((s) => `<option>${s[0]}</option>`).join("");
 
 const css = `
@@ -52,11 +52,11 @@ function servicesHtml(limit = services.length) {
 }
 
 function header(prefix) {
-  return `<div class="topbar"><div class="shell"><span>DigiSparkX, Delhi, India</span><span>${email}</span></div></div><header class="header"><div class="shell nav-wrap"><a class="logo" href="/DigiSparkX/"><img src="${prefix}brand/digisparkx-logo-transparent.png" alt="DigiSparkX"><span><b>DigiSparkX</b><small>Grow Smarter</small></span></a><nav>${nav}</nav><button class="theme" type="button" onclick="toggleTheme()">🌙 Night</button><a class="button" href="/DigiSparkX/contact/">Get a Quote</a></div></header>`;
+  return `<div class="topbar"><div class="shell"><span>DigiSparkX, Delhi, India</span><span>${email}</span></div></div><header class="header"><div class="shell nav-wrap"><a class="logo" href="/DigiSparkX/"><img src="${prefix}brand/digisparkx-logo-transparent.png" alt="DigiSparkX"><span><b>DigiSparkX</b><small>Grow Smarter</small></span></a><nav>${nav}</nav><button class="theme" type="button" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button><a class="button" href="/DigiSparkX/contact/">Get a Quote</a></div></header>`;
 }
 
 function footer(prefix) {
-  return `<footer class="footer"><div class="shell footer-grid"><div><img src="${prefix}brand/digisparkx-logo-transparent.png" alt="DigiSparkX"><p>Professional digital services, practical automation and growth-focused creative solutions for modern businesses.</p></div><div><h3>Explore</h3><a href="/DigiSparkX/about/">Our story</a><br><a href="/DigiSparkX/services/">All services</a><br><a href="/DigiSparkX/gallery/">Work gallery</a><br><a href="/DigiSparkX/contact/">Request a quote</a></div><div><h3>Contact</h3><a href="tel:+919899284296">+91 98992 84296</a><br><a href="mailto:${email}">${email}</a><p>DigiSparkX<br>Delhi, India<br>CEO: Mohammed Javed</p></div><div><h3>Working Hours</h3><p>Monday–Saturday<br>10:00 AM–7:30 PM</p></div></div><div class="copy"><div class="shell">© ${new Date().getFullYear()} DigiSparkX. Crafted for digital growth, AI and business automation.</div></div></footer><a class="float" href="https://wa.me/919899284296">☎</a>`;
+  return `<footer class="footer"><div class="shell footer-grid"><div><img src="${prefix}brand/digisparkx-logo-transparent.png" alt="DigiSparkX"><p>Professional digital services, practical automation and growth-focused creative solutions for modern businesses.</p></div><div><h3>Explore</h3><a href="/DigiSparkX/about/">Our story</a><br><a href="/DigiSparkX/services/">All services</a><br><a href="/DigiSparkX/contact/">Request a quote</a></div><div><h3>Contact</h3><a href="tel:+919899284296">+91 98992 84296</a><br><a href="mailto:${email}">${email}</a><p>DigiSparkX<br>Delhi, India<br>CEO: Mohammed Javed</p></div><div><h3>Working Hours</h3><p>Monday–Saturday<br>10:00 AM–7:30 PM</p></div></div><div class="copy"><div class="shell">© ${new Date().getFullYear()} DigiSparkX. Crafted for digital growth, AI and business automation.</div></div></footer><a class="float" href="https://wa.me/919899284296">☎</a>`;
 }
 
 const script = `<script>let audio;function pop(x,y){for(let i=0;i<12;i++){const s=document.createElement('span');s.className='particle';s.style.left=x+'px';s.style.top=y+'px';document.body.appendChild(s);requestAnimationFrame(()=>{s.style.transform='translate('+((Math.random()-.5)*130)+'px,'+((Math.random()-.5)*130)+'px) scale(0)';s.style.opacity=0});setTimeout(()=>s.remove(),760)}try{audio=audio||new AudioContext();const o=audio.createOscillator(),g=audio.createGain();o.frequency.value=620;g.gain.value=.012;o.connect(g);g.connect(audio.destination);o.start();o.stop(audio.currentTime+.045)}catch(e){}}document.addEventListener('click',e=>{if(e.target.closest('.button,button'))pop(e.clientX,e.clientY)});const dot=document.querySelector('.cursor-dot'),ring=document.querySelector('.cursor-ring');let rx=0,ry=0,mx=0,my=0;addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;if(dot){dot.style.left=mx+'px';dot.style.top=my+'px'}});function tick(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;if(ring){ring.style.left=rx+'px';ring.style.top=ry+'px'}requestAnimationFrame(tick)}tick();function toggleTheme(){document.documentElement.classList.toggle('dark');localStorage.setItem('digisparkx-theme',document.documentElement.classList.contains('dark')?'dark':'light')}if(localStorage.getItem('digisparkx-theme')==='dark')document.documentElement.classList.add('dark')</script>`;
