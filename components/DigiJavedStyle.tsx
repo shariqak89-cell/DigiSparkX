@@ -2,12 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import {
   ArrowRight, Bot, BrainCircuit, BriefcaseBusiness, Check, Code2, Film,
   Globe2, Image as ImageIcon, LineChart, Mail, MapPin, Megaphone,
   Palette, Phone, Quote, Search, Send, ShoppingCart, Sparkles,
-  Store, UserRound, Workflow, X
+  Store, Workflow, X
 } from "lucide-react";
 import { company, services } from "@/data/content";
 
@@ -81,64 +80,33 @@ export function ServiceGrid({ limit }: { limit?: number }) {
 }
 
 export function DigiContactForm({ compact = false }: { compact?: boolean }) {
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-
-  async function submit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setStatus("sending");
-    const form = event.currentTarget;
-    const raw = Object.fromEntries(new FormData(form));
-    const data = {
-      name: String(raw.name || raw.Name || ""),
-      email: String(raw.email || raw.Email || company.email),
-      phone: String(raw.phone || raw.Phone || ""),
-      subject: "New DigiSparkX website enquiry",
-      service: String(raw.service || raw.Service || ""),
-      budget: String(raw.budget || raw.Budget || ""),
-      attachment: String(raw.attachment || ""),
-      message: [
-        raw.message || raw["Project details"] || "",
-        raw.quantity ? `Quantity / scale: ${raw.quantity}` : "",
-        raw.deadline ? `Deadline: ${raw.deadline}` : ""
-      ].filter(Boolean).join("\n")
-    };
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
-    if (response.ok) {
-      setStatus("success");
-      form.reset();
-    } else {
-      setStatus("error");
-    }
-  }
-
   return (
-    <form className={compact ? "quote-form compact" : "quote-form"} onSubmit={submit}>
-      <label>Full name<input name="name" required placeholder="Your name" /></label>
-      <label>Phone number<input name="phone" required inputMode="tel" placeholder="+91" /></label>
-      {!compact && <label>Email<input type="email" name="email" required placeholder="you@example.com" /></label>}
+    <form className={compact ? "quote-form compact" : "quote-form"} action={`https://formsubmit.co/${company.email}`} method="POST" encType="multipart/form-data">
+      <input type="hidden" name="_subject" value="New DigiSparkX website enquiry" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_autoresponse" value="Thank you for contacting DigiSparkX. We have received your enquiry and will get back to you soon." />
+      <label>Full name<input name="Name" required placeholder="Your name" /></label>
+      <label>Phone number<input name="Phone" required inputMode="tel" placeholder="+91" /></label>
+      {!compact && <label>Email<input type="email" name="Email" required placeholder="you@example.com" /></label>}
       <label>What do you need?
-        <select name="service" required defaultValue="">
+        <select name="Service" required defaultValue="">
           <option value="" disabled>Select a service</option>
           {services.slice(0, 20).map((s) => <option key={s.slug}>{s.title}</option>)}
         </select>
       </label>
       {!compact && (
         <>
-          <label>Project scale<input name="quantity" placeholder="e.g. 5 pages / CRM / campaign" /></label>
-          <label>Budget<select name="budget"><option>Not sure — please advise</option><option>Below ₹15,000</option><option>₹15,000 – ₹50,000</option><option>₹50,000 – ₹1,00,000</option><option>₹1,00,000+</option></select></label>
-          <label>Required by<input type="date" name="deadline" /></label>
-          <label>Reference / file link<input name="attachment" placeholder="Drive / Cloudinary / website link" /></label>
-          <label className="full">Project details<textarea name="message" required placeholder="Tell us what you want designed, developed, marketed or automated…" /></label>
+          <label>Project scale<input name="Project scale" placeholder="e.g. 5 pages / CRM / campaign" /></label>
+          <label>Budget<select name="Budget"><option>Not sure — please advise</option><option>Below ₹15,000</option><option>₹15,000 – ₹50,000</option><option>₹50,000 – ₹1,00,000</option><option>₹1,00,000+</option></select></label>
+          <label>Required by<input type="date" name="Deadline" /></label>
+          <label>Reference / file link<input name="Reference link" placeholder="Drive / Cloudinary / website link" /></label>
+          <label className="full">Project details<textarea name="Project details" required placeholder="Tell us what you want designed, developed, marketed or automated…" /></label>
+          <label className="full file">Attach file<input type="file" name="attachment" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.zip" /></label>
         </>
       )}
-      <button className="button dark full" type="submit" disabled={status === "sending"}>{status === "sending" ? "Sending..." : "Send enquiry"} <Send size={17} /></button>
-      <p className="form-note full">
-        {status === "success" ? "Your enquiry has been sent to digisparkxuniverse@gmail.com." : status === "error" ? "Something went wrong. Please email us directly." : "Your enquiry will be emailed securely to digisparkxuniverse@gmail.com."}
-      </p>
+      <button className="button dark full" type="submit">Send enquiry <Send size={17} /></button>
+      <p className="form-note full">First submission may ask DigiSparkX to verify this email. After verification, all form messages will arrive at {company.email}.</p>
     </form>
   );
 }
@@ -164,26 +132,16 @@ export function QuoteBand() {
 }
 
 export function GalleryGrid() {
-  const [selected, setSelected] = useState<null | [string, string]>(null);
   const gallery = digiServices.slice(0, 12).map((s) => [String(s[0]), String(s[2])] as [string, string]);
   return (
-    <>
-      <div className="gallery-grid">
-        {gallery.map(([name, img]) => (
-          <button onClick={() => setSelected([name, img])} key={name}>
-            <Image src={img} alt={name} width={900} height={650} loading="lazy" />
-            <span>{name}</span>
-          </button>
-        ))}
-      </div>
-      {selected && (
-        <div className="lightbox" role="dialog" aria-modal="true" onClick={() => setSelected(null)}>
-          <button aria-label="Close"><X /></button>
-          <Image src={selected[1]} alt={selected[0]} width={1200} height={800} />
-          <p>{selected[0]}</p>
-        </div>
-      )}
-    </>
+    <div className="gallery-grid">
+      {gallery.map(([name, img]) => (
+        <button type="button" key={name}>
+          <Image src={img} alt={name} width={900} height={650} loading="lazy" />
+          <span>{name}</span>
+        </button>
+      ))}
+    </div>
   );
 }
 

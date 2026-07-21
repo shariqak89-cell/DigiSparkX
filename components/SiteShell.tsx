@@ -3,12 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { Facebook, Instagram, List, Mail, MapPin, Menu, Phone, X } from "lucide-react";
+import { Facebook, Instagram, Mail, MapPin, Menu, Moon, Phone, Sun, X } from "lucide-react";
 import { company, navItems } from "@/data/content";
 import { CursorFX, FloatingWhatsApp, whatsapp } from "@/components/DigiJavedStyle";
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
+  const [dark, setDark] = useState(false);
   const audio = useRef<AudioContext | null>(null);
 
   useEffect(() => {
@@ -39,10 +40,28 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener("mousemove", move);
   }, []);
 
-  function magicClick(event: React.MouseEvent<HTMLElement>) {
-    const box = event.currentTarget.getBoundingClientRect();
-    const cx = box.left + box.width / 2;
-    const cy = box.top + box.height / 2;
+  useEffect(() => {
+    const saved = localStorage.getItem("digisparkx-theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setDark(saved ? saved === "dark" : prefersDark);
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", dark);
+    localStorage.setItem("digisparkx-theme", dark ? "dark" : "light");
+  }, [dark]);
+
+  useEffect(() => {
+    const handler = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (!target?.closest(".button, button, .phone-link, .text-link")) return;
+      magicAt(event.clientX, event.clientY);
+    };
+    document.addEventListener("click", handler);
+    return () => document.removeEventListener("click", handler);
+  }, []);
+
+  function magicAt(cx: number, cy: number) {
     for (let i = 0; i < 10; i += 1) {
       const node = document.createElement("span");
       node.className = "particle";
@@ -87,7 +106,11 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
           </nav>
           <div className="nav-actions">
             <a className="phone-link" href={`tel:${company.phone.replace(/\s/g, "")}`}><Phone fill="currentColor" /><span>{company.phone}</span></a>
-            <a className="button green small" href={whatsapp} target="_blank" rel="noreferrer" onClick={magicClick}>Get a Quote</a>
+            <button className="theme-toggle" type="button" onClick={() => setDark((value) => !value)} aria-label={dark ? "Light Mode" : "Night Mode"}>
+              {dark ? <Sun size={17} /> : <Moon size={17} />}
+              <span>{dark ? "Light" : "Night"}</span>
+            </button>
+            <a className="button green small" href={whatsapp} target="_blank" rel="noreferrer">Get a Quote</a>
             <button className="menu-btn" aria-label="Toggle menu" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
           </div>
         </div>

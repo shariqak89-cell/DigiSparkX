@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check, Phone } from "lucide-react";
-import { DigiContactForm, QuoteBand, ServiceGrid, TrustStrip, digiServices, whatsapp } from "@/components/DigiJavedStyle";
+import { ArrowRight, Phone, PlayCircle } from "lucide-react";
+import { QuoteBand, ServiceGrid, TrustStrip, whatsapp } from "@/components/DigiJavedStyle";
 
 export default function HomePage() {
   return (
@@ -19,8 +19,8 @@ export default function HomePage() {
             </div>
           </div>
           <div className="hero-media">
-            <Image src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="DigiSparkX digital strategy workspace" width={1200} height={800} priority />
-            <div className="image-note"><span>Design</span><span>Marketing</span><span>AI</span></div>
+            <Image src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80" alt="Attractive computer coding workspace for DigiSparkX" width={1200} height={800} priority />
+            <div className="image-note"><span>Computer</span><span>Courses</span><span>AI</span></div>
           </div>
         </div>
       </section>
@@ -51,6 +51,27 @@ export default function HomePage() {
           <div className="section-head centered"><div><span className="eyebrow pink">How it works</span><h2>Clear from brief to launch</h2></div></div>
           <div className="process-grid">
             {[["01", "Tell us what you need"], ["02", "Approve plan & estimate"], ["03", "We design, build and test"], ["04", "Launch and support"]].map(([n, t]) => <div key={n}><b>{n}</b><h3>{t}</h3></div>)}
+          </div>
+        </div>
+      </section>
+      <section className="section video-section">
+        <div className="shell">
+          <div className="section-head">
+            <div><span className="eyebrow pink">Course videos</span><h2>Learn digital skills with real tools</h2><p>Short computer and technology clips for a modern academy-style feel.</p></div>
+          </div>
+          <div className="video-grid">
+            <article className="video-card">
+              <video autoPlay muted loop playsInline preload="metadata">
+                <source src="https://videos.pexels.com/video-files/3195394/3195394-hd_1920_1080_25fps.mp4" type="video/mp4" />
+              </video>
+              <div><h3><PlayCircle size={26} /> Website Development</h3><p>Modern coding, design and web development learning.</p></div>
+            </article>
+            <article className="video-card">
+              <video autoPlay muted loop playsInline preload="metadata">
+                <source src="https://videos.pexels.com/video-files/5900947/5900947-hd_1920_1080_25fps.mp4" type="video/mp4" />
+              </video>
+              <div><h3><PlayCircle size={26} /> Digital Marketing & AI</h3><p>Professional skills for growth, automation and online business.</p></div>
+            </article>
           </div>
         </div>
       </section>
