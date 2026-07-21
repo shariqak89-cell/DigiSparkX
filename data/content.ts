@@ -25,7 +25,7 @@ export const company = {
   directors: ["Junaid Javed", "Iqra Javed", "Fatima Javed"],
   address: "DigiSparkX, Delhi, India",
   phone: "+91 98992 84296",
-  logo: "/brand/digisparkx-logo.jpeg",
+  logo: "/brand/digisparkx-logo-transparent.png",
   mapQuery: "Delhi India"
 };
 
@@ -33,10 +33,7 @@ export const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/academy", label: "Academy" },
   { href: "/portfolio", label: "Portfolio" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" }
 ];
 
