@@ -10,6 +10,7 @@
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:studio": "prisma studio",
+    "preview:static": "node scripts/generate-static-preview.mjs",
     "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
