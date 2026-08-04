@@ -24,7 +24,7 @@ export function ReviewForm() {
   return (
     <form onSubmit={submit} className="premium-card p-6">
       <h2 className="text-2xl font-black">Rate DigiSparkX</h2>
-      <p className="mt-2 text-slate-600 dark:text-slate-300">Reviews are moderated by admin before publishing.</p>
+      <p className="mt-2 text-slate-600 dark:text-slate-300">Share your honest experience with DigiSparkX.</p>
       <div className="my-5 flex gap-2">
         {Array.from({ length: 5 }).map((_, index) => (
           <button key={index} type="button" onClick={() => setRating(index + 1)} className="text-orange-500" aria-label={`Rate ${index + 1} stars`}>

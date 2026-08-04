@@ -7,7 +7,7 @@ export default function PrivacyPage() {
     "We collect contact, enquiry, enrollment and communication details only to respond to users, support learners and improve DigiSparkX services.",
     "Website analytics may be used to understand traffic, content performance and user experience.",
     "Personal information is stored carefully and used only for legitimate business, learning, support and communication purposes.",
-    "Form submissions may be sent to the official DigiSparkX email and, where backend services are configured, stored securely in the database.",
+    "Form submissions may be sent to the official DigiSparkX email and stored carefully for follow-up communication.",
     "We do not sell personal data to third parties.",
     "Users can request correction or deletion of their personal enquiry data by emailing DigiSparkX."
   ];

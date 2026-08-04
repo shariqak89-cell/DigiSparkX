@@ -9,7 +9,7 @@ export default function PortfolioPage() {
   return (
     <section className="section">
       <div className="container">
-        <SectionHeader eyebrow="Portfolio" title="Projects, case studies and client-ready presentation modules." text="Filters and CMS management are supported in the dashboard data model." />
+        <SectionHeader eyebrow="Portfolio" title="Projects, case studies and client-ready work highlights." text="Explore selected digital projects, creative work and growth-focused solutions by DigiSparkX." />
         <div className="mb-8 flex flex-wrap justify-center gap-3">
           {categories.map((category) => <span key={category} className="rounded-full border border-slate-200 px-4 py-2 text-sm font-bold dark:border-white/10">{category}</span>)}
         </div>

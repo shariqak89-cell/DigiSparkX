@@ -53,7 +53,7 @@ export function PortfolioCard({ item }: { item: any }) {
         <p className="mt-4 text-sm italic text-slate-600 dark:text-slate-300">“{item.review}”</p>
         <div className="mt-5 flex gap-3">
           <Link href={item.liveUrl || "#"} className="btn btn-primary text-sm">Live Preview</Link>
-          <Link href={item.githubUrl || "#"} className="btn btn-secondary text-sm">GitHub</Link>
+          <Link href={item.githubUrl || "#"} className="btn btn-secondary text-sm">Case Study</Link>
         </div>
       </div>
     </article>

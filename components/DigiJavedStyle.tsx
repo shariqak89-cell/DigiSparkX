@@ -16,7 +16,7 @@ type DigiService = [string, string, string, React.ComponentType<{ size?: number 
 
 export const digiServices: DigiService[] = [
   ["Website Development", "Modern responsive websites built for trust, speed and lead generation.", "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80", Code2],
-  ["Web Applications", "Dashboards, portals and business tools with secure backend workflows.", "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80", Workflow],
+  ["Web Applications", "Dashboards, portals and business tools with secure professional workflows.", "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80", Workflow],
   ["E-commerce Solutions", "Online stores, catalogues and conversion-ready shopping experiences.", "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?auto=format&fit=crop&w=900&q=80", ShoppingCart],
   ["UI/UX Design", "Clean product interfaces, user flows and premium web experiences.", "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=900&q=80", Palette],
   ["Graphic Design", "Social creatives, business profiles, brochures and brand visuals.", "https://images.unsplash.com/photo-1634942537034-2531766767d1?auto=format&fit=crop&w=900&q=80", ImageIcon],
@@ -60,7 +60,7 @@ export const digiServices: DigiService[] = [
   ["Birthday Creative Packages", "Birthday posters, invitation videos, photo edits and celebration creatives.", "https://images.unsplash.com/photo-1464349153735-7db50ed83c84?auto=format&fit=crop&w=900&q=80", Sparkles],
   ["Event Branding", "Complete branding for seminars, workshops, launches and celebrations.", "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=80", Megaphone],
   ["Email Marketing", "Newsletter design, campaign setup, automation and audience communication.", "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=900&q=80", Mail],
-  ["Analytics & Tracking", "Google Analytics, pixels, conversion tracking and reporting dashboards.", "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80", LineChart],
+  ["Analytics & Tracking", "Google Analytics, pixels, conversion tracking and clear performance reports.", "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80", LineChart],
   ["Cybersecurity Basics", "Security checks, SSL, safe forms, backups and website hardening guidance.", "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=900&q=80", Workflow],
   ["Domain Email Setup", "Professional business email, DNS records and deliverability setup.", "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=80", Mail],
   ["Startup Launch Kit", "Logo, website, landing page, pitch profile and launch creatives in one package.", "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=900&q=80", Sparkles],

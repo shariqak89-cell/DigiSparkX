@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 const tracks = [
   ["AI Foundation", "Learn AI basics, prompt engineering, content creation and automation workflows."],
   ["Digital Growth", "SEO, Google Ads, Facebook Ads, social media marketing and personal branding."],
-  ["Web Development", "Website development, frontend, backend, full stack and deployment workflows."],
+  ["Web Development", "Website development, frontend, full stack skills and launch-ready workflows."],
   ["Creative Skills", "Graphic design, Canva, Photoshop, video editing and motion graphics."]
 ];
 
@@ -37,7 +37,7 @@ export default async function CoursesPage() {
 
       <section className="section videos">
         <div className="shell">
-          <div className="section-head"><div><span className="eyebrow pink">Learning videos</span><h2>Watch DigiSparkX lessons and creator classes.</h2><p>Courses page par videos clean grid cards mein show honge. Homepage par animated slider rahega.</p></div></div>
+          <div className="section-head"><div><span className="eyebrow pink">Learning videos</span><h2>Watch DigiSparkX lessons and creator classes.</h2><p>Explore practical course videos, AI tutorials and digital skill lessons through clean video cards.</p></div></div>
           <YouTubeGrid videos={videos} />
         </div>
       </section>

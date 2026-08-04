@@ -72,7 +72,7 @@ export const services = [
     category: "Development",
     description: "Fast, secure and premium business websites built with modern UI, conversion strategy, SEO foundations and scalable architecture.",
     priceFrom: 14999,
-    features: ["Responsive design", "SEO setup", "CMS-ready structure", "Performance optimization"],
+    features: ["Responsive design", "SEO setup", "Easy content updates", "Performance optimization"],
     process: ["Discovery", "Wireframe", "Design", "Development", "QA", "Launch"],
     faqs: [{ q: "Can you redesign an old website?", a: "Yes, we can redesign, migrate and optimize existing websites." }]
   },
@@ -80,11 +80,11 @@ export const services = [
     slug: "web-applications",
     title: "Web Applications",
     category: "Development",
-    description: "Custom dashboards, portals, SaaS platforms and business tools designed for real operations and future scaling.",
+    description: "Custom business portals, platforms and smart tools designed for real operations and future scaling.",
     priceFrom: 49999,
-    features: ["Role-based access", "Database design", "Admin dashboard", "API integrations"],
+    features: ["Team access", "Smart data structure", "Control panel", "Useful integrations"],
     process: ["Requirement mapping", "Architecture", "Sprint development", "Testing", "Deployment"],
-    faqs: [{ q: "Do you build secure admin panels?", a: "Yes, with authentication, validation, logging and permissions." }]
+    faqs: [{ q: "Do you build secure business panels?", a: "Yes, with safe login, clean workflows and permission-based access." }]
   },
   {
     slug: "mobile-apps",
@@ -92,7 +92,7 @@ export const services = [
     category: "Development",
     description: "Android and iOS-ready app experiences for startups, education, commerce, booking and internal workflows.",
     priceFrom: 69999,
-    features: ["Modern UI", "API backend", "Push-ready architecture", "Store deployment guidance"],
+    features: ["Modern UI", "Connected workflows", "Notification-ready structure", "Launch guidance"],
     process: ["Product scope", "Prototype", "Build", "Testing", "Release"],
     faqs: [{ q: "Can you build MVP apps?", a: "Yes, we build MVPs that can grow into full products." }]
   },
@@ -212,7 +212,7 @@ export const services = [
     category: "Development",
     description: "Custom software for operations, education, commerce, agencies and growing teams.",
     priceFrom: 79999,
-    features: ["Custom architecture", "Secure backend", "Admin roles", "Maintenance plan"],
+    features: ["Custom architecture", "Secure system", "Team roles", "Maintenance plan"],
     process: ["Scope", "Architecture", "Build", "QA", "Support"],
     faqs: [{ q: "Can you build enterprise tools?", a: "Yes, we can design scalable tools with clear access control." }]
   },
@@ -230,7 +230,7 @@ export const services = [
     slug: "custom-crm-erp",
     title: "Custom CRM & ERP Systems",
     category: "Business Systems",
-    description: "Lead pipelines, customer records, operations dashboards, inventory flows and reports.",
+    description: "Lead pipelines, customer records, operation panels, inventory flows and reports.",
     priceFrom: 99999,
     features: ["CRM pipeline", "Role permissions", "Reports", "Data import"],
     process: ["Workflow study", "Data model", "Build", "Migration", "Training"],
@@ -262,8 +262,8 @@ export const courses = [
   { slug: "digital-marketing", title: "Digital Marketing Mastery", category: "Marketing", description: "Learn funnels, content, ads, analytics and growth strategy with practical campaign work.", duration: "10 weeks", difficulty: "Beginner to Pro", mentor: "DigiSparkX Growth Team", certificate: true, price: 9999, active: true },
   { slug: "website-development", title: "Website Development", category: "Development", description: "Build responsive websites using modern frontend tools, hosting workflows and real client briefs.", duration: "12 weeks", difficulty: "Beginner", mentor: "Junaid Javed", certificate: true, price: 12999, active: true },
   { slug: "frontend-development", title: "Frontend Development", category: "Development", description: "HTML, CSS, JavaScript, React, TypeScript, animations, accessibility and production UI systems.", duration: "14 weeks", difficulty: "Intermediate", mentor: "DigiSparkX Dev Team", certificate: true, price: 15999, active: true },
-  { slug: "backend-development", title: "Backend Development", category: "Development", description: "APIs, authentication, databases, security, deployments and scalable backend patterns.", duration: "14 weeks", difficulty: "Intermediate", mentor: "DigiSparkX Dev Team", certificate: true, price: 17999, active: true },
-  { slug: "full-stack-development", title: "Full Stack Development", category: "Development", description: "Frontend, backend, database, authentication and deployment in a complete project-based program.", duration: "24 weeks", difficulty: "Career Track", mentor: "DigiSparkX Engineering Team", certificate: true, price: 29999, active: true },
+  { slug: "business-website-systems", title: "Business Website Systems", category: "Development", description: "Learn secure website systems, data handling, login flows and launch-ready project structure.", duration: "14 weeks", difficulty: "Intermediate", mentor: "DigiSparkX Dev Team", certificate: true, price: 17999, active: true },
+  { slug: "full-stack-development", title: "Full Stack Development", category: "Development", description: "Learn complete website building from design to working business systems through real projects.", duration: "24 weeks", difficulty: "Career Track", mentor: "DigiSparkX Engineering Team", certificate: true, price: 29999, active: true },
   { slug: "graphic-design", title: "Graphic Design", category: "Creative", description: "Branding, composition, typography, color, Canva, Photoshop and practical design assignments.", duration: "10 weeks", difficulty: "Beginner", mentor: "DigiSparkX Design Team", certificate: true, price: 8999, active: true },
   { slug: "video-editing", title: "Video Editing", category: "Creative", description: "Edit reels, ads, YouTube videos and course content with polished storytelling and exports.", duration: "8 weeks", difficulty: "Beginner", mentor: "DigiSparkX Studio", certificate: true, price: 8999, active: true },
   { slug: "ai-tools-chatgpt", title: "AI Tools, ChatGPT & Prompt Engineering", category: "AI", description: "Use AI tools for writing, design, automation, research, business productivity and freelancing.", duration: "6 weeks", difficulty: "All Levels", mentor: "DigiSparkX AI Lab", certificate: true, price: 6999, active: true },
@@ -277,7 +277,7 @@ export const portfolioItems = [
     category: "E-commerce",
     description: "A premium store experience with product storytelling, checkout-ready architecture and SEO collection pages.",
     image: "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?auto=format&fit=crop&w=1200&q=80",
-    tech: ["Next.js", "Prisma", "Stripe-ready", "SEO"],
+    tech: ["Modern Website", "Online Store", "Payment-ready", "SEO"],
     client: "Retail Brand",
     review: "DigiSparkX created a polished system that helped us look credible from day one.",
     liveUrl: "#",
@@ -287,9 +287,9 @@ export const portfolioItems = [
   {
     title: "Course Growth Portal",
     category: "Education",
-    description: "Course landing pages, lead capture, admin workflows and student communication assets.",
+    description: "Course landing pages, enquiry capture, student communication and professional learning presentation.",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
-    tech: ["React", "Dashboard", "CMS", "Email"],
+    tech: ["Modern Design", "Learning Portal", "Content Updates", "Email"],
     client: "Training Institute",
     review: "The new portal made our course presentation far more professional.",
     liveUrl: "#",
@@ -299,11 +299,11 @@ export const portfolioItems = [
   {
     title: "AI Lead Automation",
     category: "Automation",
-    description: "Lead forms, routing, notifications, status tracking and admin visibility for faster response.",
+    description: "Lead forms, smart routing, notifications and enquiry tracking for faster response.",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
     tech: ["AI Workflow", "CRM", "Automation", "Analytics"],
     client: "Service Business",
-    review: "Our team stopped losing enquiries because everything started flowing into one dashboard.",
+    review: "Our team stopped losing enquiries because everything became organized in one clear workflow.",
     liveUrl: "#",
     githubUrl: "#",
     featured: true
@@ -330,8 +330,8 @@ export const testimonials = [
 
 export const pricing = [
   { name: "Starter", price: "₹14,999+", description: "For new businesses and professionals.", features: ["5-page website", "Contact form", "Mobile responsive", "Basic SEO", "Launch support"] },
-  { name: "Growth", price: "₹49,999+", description: "For brands that need conversion and content.", features: ["Custom design", "CMS sections", "Advanced SEO", "Analytics", "Marketing-ready pages"], popular: true },
-  { name: "Scale", price: "Custom", description: "For apps, portals, CRM and automation.", features: ["Discovery workshop", "Secure backend", "Role dashboard", "Database", "Maintenance roadmap"] }
+  { name: "Growth", price: "₹49,999+", description: "For brands that need conversion and content.", features: ["Custom design", "Easy update sections", "Advanced SEO", "Analytics", "Marketing-ready pages"], popular: true },
+  { name: "Scale", price: "Custom", description: "For apps, portals, CRM and automation.", features: ["Discovery workshop", "Secure system", "Team access", "Organized records", "Maintenance roadmap"] }
 ];
 
 export const blogPosts = [
@@ -419,8 +419,8 @@ export const faqs = [
   { q: "Is DigiSparkX a service company or training platform?", a: "Both. Clients can hire DigiSparkX for professional digital services, and learners can join DigiSparkX courses for practical skill training." },
   { q: "Can I request a custom website or software?", a: "Yes. We build websites, web apps, CRM, ERP systems, e-commerce platforms and automation tools." },
   { q: "Do you provide certificates for courses?", a: "Yes, selected DigiSparkX courses include certificates after completion requirements are met." },
-  { q: "Will contact form submissions go to email and database?", a: "Yes. With SMTP and PostgreSQL environment variables configured, forms send email and store records securely." },
-  { q: "Can the admin edit content without code?", a: "Yes. The admin dashboard and CMS APIs are structured for managing services, courses, portfolio, testimonials, blogs, leads and settings." }
+  { q: "Will contact form submissions reach DigiSparkX?", a: "Yes. Enquiries are sent safely to the DigiSparkX team for follow-up." },
+  { q: "Can website content be updated later?", a: "Yes. Content, services, courses, blogs and media can be updated as the business grows." }
 ];
 
 export const dashboardCards = [

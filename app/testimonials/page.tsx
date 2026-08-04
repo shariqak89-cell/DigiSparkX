@@ -10,7 +10,7 @@ export default function TestimonialsPage() {
   return (
     <section className="section">
       <div className="container">
-        <SectionHeader eyebrow="Testimonials & Ratings" title={`${average.toFixed(1)} average rating from approved reviews.`} text="Visitors can submit ratings, and admin approval keeps public reviews high-quality and trustworthy." />
+        <SectionHeader eyebrow="Testimonials & Ratings" title={`${average.toFixed(1)} average rating from happy learners and clients.`} text="Read genuine experiences from people who learned, built and grew with DigiSparkX." />
         <div className="grid gap-5 lg:grid-cols-[1fr_0.8fr]">
           <div className="grid gap-5 md:grid-cols-2">
             {testimonials.map((item) => <TestimonialCard key={item.name} item={item} />)}

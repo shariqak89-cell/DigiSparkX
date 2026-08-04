@@ -26,7 +26,7 @@ export function LoginForm() {
     <form onSubmit={submit} className="premium-card mx-auto max-w-md p-8">
       <Image src={company.logo} alt="DigiSparkX logo" width={92} height={92} className="mx-auto rounded-3xl" />
       <h1 className="mt-6 text-center text-3xl font-black">DigiSparkX Admin Login</h1>
-      <p className="mt-2 text-center text-slate-600 dark:text-slate-300">Secure dashboard access for admin, editors and instructors.</p>
+      <p className="mt-2 text-center text-slate-600 dark:text-slate-300">Secure team access for DigiSparkX members.</p>
       <label className="mt-6 block">
         <span className="mb-2 block text-sm font-bold">Email</span>
         <div className="relative">

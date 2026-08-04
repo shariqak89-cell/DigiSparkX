@@ -137,7 +137,7 @@ export default async function HomePage() {
       <section className="section video-section">
         <div className="shell">
           <div className="section-head">
-            <div><span className="eyebrow pink">YouTube course videos</span><h2>Learning videos in an animated slider.</h2><p>Add YouTube videos from the backend and they will appear here.</p></div>
+            <div><span className="eyebrow pink">YouTube course videos</span><h2>Learning videos in an animated slider.</h2><p>Watch practical DigiSparkX lessons, creator classes and skill-building videos in one place.</p></div>
           </div>
           <YouTubeSlider videos={videos} />
         </div>
