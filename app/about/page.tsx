@@ -53,6 +53,8 @@ export default function AboutPage() {
             <span className="eyebrow pink">Leadership</span>
             <h2>CEO Mohammed Javed</h2>
             <p>DigiSparkX is led by Mohammed Javed with a philosophy rooted in practical learning, honesty, continuous improvement and real-world execution.</p>
+            <p>With decades of professional exposure across business, computers, design, publishing workflows and client service, he believes that technology becomes powerful only when people learn how to apply it with confidence, discipline and ethics.</p>
+            <p>His vision for DigiSparkX is to make Artificial Intelligence simple, useful and opportunity-focused for students, professionals, entrepreneurs, teachers and growing businesses.</p>
             <p>Directors: Junaid Javed, Iqra Javed and Fatima Javed.</p>
             <div className="feature-list">
               <div><UserRound /><span><b>People-first learning</b>Built for students, professionals, educators and business owners.</span></div>
@@ -67,6 +69,21 @@ export default function AboutPage() {
               <div><ShieldCheck /><span><b>Responsible use</b>Ethical AI, data privacy and safe implementation at the core.</span></div>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="shell story-grid">
+          <div>
+            <span className="eyebrow pink">Founder vision</span>
+            <h2>Mohammed Javed — guiding DigiSparkX with experience, trust and innovation.</h2>
+            <p>From practical computer learning to modern AI workflows, Mohammed Javed&apos;s journey reflects the DigiSparkX promise: learn continuously, solve real problems and help others grow with technology.</p>
+            <p>Under his leadership, DigiSparkX focuses on applied AI education, ethical digital transformation, practical mentorship and business growth systems that can be understood and used by real people.</p>
+          </div>
+          <div className="ceo-showcase">
+            <Image src="/brand/mohammed-javed-ceo-3d.png" alt="Mohammed Javed CEO of DigiSparkX" width={1122} height={1402} />
+            <div className="ceo-badge"><b>Mohd. Javed</b><span>CEO • DigiSparkX</span></div>
+          </div>
         </div>
       </section>
 

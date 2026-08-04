@@ -1,7 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Phone, PlayCircle } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { QuoteBand, ServiceGrid, TrustStrip, whatsapp } from "@/components/DigiJavedStyle";
+import { YouTubeSlider } from "@/components/YouTubeSlider";
+import { getPublishedCourseVideos } from "@/lib/published-content";
+
+export const dynamic = "force-dynamic";
 
 const audiences = [
   ["Students", "Build future-ready AI skills, improve productivity and prepare for emerging careers."],
@@ -33,7 +37,9 @@ const approach = [
   ["05", "Earn", "Turn knowledge into opportunities through freelancing, jobs, entrepreneurship or digital products."]
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const videos = await getPublishedCourseVideos();
+
   return (
     <>
       <section className="hero">
@@ -131,18 +137,9 @@ export default function HomePage() {
       <section className="section video-section">
         <div className="shell">
           <div className="section-head">
-            <div><span className="eyebrow pink">Course videos</span><h2>Learn digital skills with real tools</h2><p>Short computer and technology clips for a modern academy-style feel.</p></div>
+            <div><span className="eyebrow pink">YouTube course videos</span><h2>Learning videos in an animated slider.</h2><p>Add YouTube videos from the backend and they will appear here.</p></div>
           </div>
-          <div className="video-grid">
-            <article className="video-card">
-              <video autoPlay muted loop playsInline preload="metadata"><source src="https://videos.pexels.com/video-files/2278095/2278095-hd_1920_1080_30fps.mp4" type="video/mp4" /></video>
-              <div><h3><PlayCircle size={26} /> Website Development</h3><p>Modern coding, design and web development learning.</p></div>
-            </article>
-            <article className="video-card">
-              <video autoPlay muted loop playsInline preload="metadata"><source src="https://videos.pexels.com/video-files/4495983/4495983-hd_1920_1080_25fps.mp4" type="video/mp4" /></video>
-              <div><h3><PlayCircle size={26} /> Digital Marketing & AI</h3><p>Professional skills for growth, automation and online business.</p></div>
-            </article>
-          </div>
+          <YouTubeSlider videos={videos} />
         </div>
       </section>
 

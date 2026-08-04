@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/db";
 
-const allowed = new Set(["lead", "course", "service", "portfolioItem", "review", "blogPost", "mediaAsset", "setting", "activityLog"]);
+const allowed = new Set(["lead", "course", "service", "portfolioItem", "review", "blogPost", "courseVideo", "mediaAsset", "setting", "activityLog"]);
 
 function clientFor(model: string) {
   return (prisma as unknown as Record<string, { findMany: Function; create: Function }>)[model];

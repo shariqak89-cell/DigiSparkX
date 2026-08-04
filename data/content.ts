@@ -363,6 +363,30 @@ export const blogPosts = [
   }
 ];
 
+export const youtubeVideos = [
+  {
+    title: "AI Foundation Demo Class",
+    description: "A practical introduction to AI tools, prompts and real-world learning.",
+    youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    youtubeId: "dQw4w9WgXcQ",
+    category: "AI Course"
+  },
+  {
+    title: "Prompt Engineering Workflow",
+    description: "Learn how structured prompts improve productivity and business output.",
+    youtubeUrl: "https://www.youtube.com/watch?v=jNQXAC9IVRw",
+    youtubeId: "jNQXAC9IVRw",
+    category: "Prompt Engineering"
+  },
+  {
+    title: "Digital Marketing with AI",
+    description: "How AI helps with content, campaigns, analysis and growth.",
+    youtubeUrl: "https://www.youtube.com/watch?v=ysz5S6PUM-U",
+    youtubeId: "ysz5S6PUM-U",
+    category: "Digital Marketing"
+  }
+];
+
 export const faqs = [
   { q: "Is DigiSparkX a service company or academy?", a: "Both. Clients can hire DigiSparkX for professional digital services, and learners can join DigiSparkX Academy for practical skill training." },
   { q: "Can I request a custom website or software?", a: "Yes. We build websites, web apps, CRM, ERP systems, e-commerce platforms and automation tools." },

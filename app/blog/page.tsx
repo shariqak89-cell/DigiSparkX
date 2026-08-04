@@ -1,11 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SectionHeader } from "@/components/SectionHeader";
-import { blogPosts } from "@/data/content";
+import { getPublishedBlogPosts } from "@/lib/published-content";
 
 export const metadata = { title: "Blog" };
+export const dynamic = "force-dynamic";
 
-export default function BlogPage() {
+function asStringArray(value: unknown, fallback: string[]) {
+  return Array.isArray(value) ? value.map(String) : fallback;
+}
+
+export default async function BlogPage() {
+  const blogPosts = await getPublishedBlogPosts();
+
   return (
     <section className="section">
       <div className="container">
@@ -19,7 +26,7 @@ export default function BlogPage() {
               {post.featuredImage && <Image src={post.featuredImage} alt={post.title} width={1000} height={620} className="h-64 w-full object-cover" />}
               <div className="p-6">
                 <div className="flex flex-wrap gap-2">
-                  {post.categories.map((category) => <span key={category} className="rounded-full bg-orange-500/10 px-3 py-1 text-xs font-black text-orange-600">{category}</span>)}
+                  {asStringArray(post.categories, ["AI"]).map((category) => <span key={category} className="rounded-full bg-orange-500/10 px-3 py-1 text-xs font-black text-orange-600">{category}</span>)}
                 </div>
                 <h2 className="mt-4 text-3xl font-black">{post.title}</h2>
                 <p className="mt-3 text-slate-600 dark:text-slate-300">{post.excerpt}</p>

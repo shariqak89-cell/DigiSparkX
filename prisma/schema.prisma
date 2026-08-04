@@ -189,6 +189,22 @@ model BlogPost {
   @@index([publishedAt])
 }
 
+model CourseVideo {
+  id          String        @id @default(cuid())
+  title       String
+  description String?
+  youtubeUrl  String
+  youtubeId   String
+  category    String?
+  status      PublishStatus @default(PUBLISHED)
+  order       Int           @default(0)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([status])
+  @@index([order])
+}
+
 model MediaAsset {
   id        String   @id @default(cuid())
   url       String

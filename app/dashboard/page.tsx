@@ -7,7 +7,7 @@ import { auth } from "@/lib/auth";
 export const metadata = { title: "Admin Dashboard" };
 
 const modules = [
-  "Analytics", "Users", "Leads", "Courses", "Services", "Portfolio", "Testimonials", "Blogs", "Pages", "Media Library", "Settings", "Themes", "SEO", "Emails", "Notifications", "Backup", "Security", "Logs", "Role Management", "Permissions"
+  "Analytics", "Users", "Leads", "Courses", "Services", "Portfolio", "Testimonials", "Blogs", "Course Videos", "Pages", "Media Library", "Settings", "Themes", "SEO", "Emails", "Notifications", "Backup", "Security", "Logs", "Role Management", "Permissions"
 ];
 
 export default async function DashboardPage() {

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ArrowLeft, Plus } from "lucide-react";
+import { CmsManager } from "@/components/CmsManager";
 import { auth } from "@/lib/auth";
 
 export default async function DashboardModulePage({ params }: { params: Promise<{ module: string }> }) {
@@ -9,6 +10,17 @@ export default async function DashboardModulePage({ params }: { params: Promise<
 
   const { module } = await params;
   const title = module.replaceAll("-", " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
+  if (["blogs", "course-videos"].includes(module)) {
+    return (
+      <section className="section">
+        <div className="container">
+          <Link href="/dashboard" className="btn btn-secondary mb-6"><ArrowLeft size={16} /> Back</Link>
+          <CmsManager module={module} />
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="section">
       <div className="container">
