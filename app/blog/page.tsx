@@ -9,7 +9,10 @@ export default function BlogPage() {
   return (
     <section className="section">
       <div className="container">
-        <SectionHeader eyebrow="Blog" title="Ideas on digital growth, skills, design and automation." text="The CMS supports draft, publish, schedule, SEO fields, categories, tags and featured images." />
+        <SectionHeader eyebrow="Blog" title="Insights, workflows and deep dives into practical AI." text="Cut through the AI hype with clear, actionable guides, tool reviews, productivity workflows and industry updates." />
+        <div className="pill-list mb-10">
+          {["AI Productivity Hacks", "Prompt Engineering Masterclasses", "Future of Work & Business", "DigiSparkX Updates"].map((category) => <span key={category}>{category}</span>)}
+        </div>
         <div className="grid gap-5 lg:grid-cols-2">
           {blogPosts.map((post) => (
             <article key={post.slug} className="premium-card overflow-hidden">

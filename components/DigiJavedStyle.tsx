@@ -89,9 +89,15 @@ export function DigiContactForm({ compact = false }: { compact?: boolean }) {
       <label>Full name<input name="Name" required placeholder="Your name" /></label>
       <label>Phone number<input name="Phone" required inputMode="tel" placeholder="+91" /></label>
       {!compact && <label>Email<input type="email" name="Email" required placeholder="you@example.com" /></label>}
-      <label>What do you need?
+      {!compact && <label>Organization / Company<input name="Organization / Company" placeholder="Company, school, college or individual" /></label>}
+      <label>Area of interest
         <select name="Service" required defaultValue="">
-          <option value="" disabled>Select a service</option>
+          <option value="" disabled>Select an area</option>
+          <option>AI Foundation Program</option>
+          <option>Corporate AI Training</option>
+          <option>AI for Schools & Colleges</option>
+          <option>Digital Products</option>
+          <option>General Inquiry</option>
           {services.slice(0, 20).map((s) => <option key={s.slug}>{s.title}</option>)}
         </select>
       </label>

@@ -97,8 +97,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       <header className="header">
         <div className="shell nav-wrap">
           <Link href="/" className="logo-link" aria-label="DigiSparkX home">
-            <Image src={company.logo} alt="DigiSparkX" width={96} height={86} priority />
-            <span className="logo-word"><b>DigiSparkX</b><span>Grow Smarter</span></span>
+            <Image src={company.logo} alt="DigiSparkX" width={260} height={120} priority />
           </Link>
           <nav className={open ? "nav open" : "nav"} aria-label="Main navigation">
             {navItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}</Link>)}
@@ -127,12 +126,14 @@ function Footer() {
       <div className="shell footer-grid">
         <div className="footer-brand">
           <Image src={company.logo} alt="DigiSparkX" width={170} height={125} />
-          <p>Professional digital services, practical automation and growth-focused creative solutions for modern businesses.</p>
+          <p>Practical AI learning, business growth training, digital services and automation support for students, professionals, entrepreneurs, educators and companies.</p>
         </div>
         <div>
           <h3>Explore</h3>
           <Link href="/about">Our story</Link>
+          <Link href="/academy">AI programs</Link>
           <Link href="/services">All services</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/contact">Request a quote</Link>
         </div>
         <div>
@@ -143,14 +144,14 @@ function Footer() {
         </div>
         <div>
           <h3>Working Hours</h3>
-          <p>Monday–Saturday<br />10:00 AM–7:30 PM</p>
+          <p>Monday-Saturday<br />10:00 AM-7:30 PM</p>
           <div className="socials">
             <a href="#" aria-label="Instagram"><Instagram size={18} /></a>
             <a href="#" aria-label="Facebook"><Facebook size={18} /></a>
           </div>
         </div>
       </div>
-      <div className="copyright"><div className="shell">© {new Date().getFullYear()} DigiSparkX. Crafted for digital growth, AI and business automation.</div></div>
+      <div className="copyright"><div className="shell">© {new Date().getFullYear()} DigiSparkX. Learn AI. Build Skills. Create Income.</div></div>
     </footer>
   );
 }

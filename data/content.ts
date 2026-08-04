@@ -32,7 +32,9 @@ export const company = {
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
+  { href: "/academy", label: "Academy" },
   { href: "/services", label: "Services" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" }
 ];
 
@@ -45,6 +47,7 @@ export const allLinks = [
   { href: "/privacy-policy", label: "Privacy Policy" },
   { href: "/terms-and-conditions", label: "Terms & Conditions" },
   { href: "/refund-policy", label: "Refund Policy" },
+  { href: "/disclaimer", label: "Disclaimer" },
   { href: "/sitemap", label: "Sitemap" }
 ];
 
