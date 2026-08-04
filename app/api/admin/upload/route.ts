@@ -3,7 +3,7 @@ import path from "node:path";
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 
-const allowedTypes = new Set(["video/mp4", "video/webm", "video/ogg"]);
+const allowedTypes = new Set(["video/mp4", "video/webm", "video/ogg", "image/jpeg", "image/png", "image/webp", "image/gif"]);
 
 export async function POST(request: Request) {
   const session = await auth();
@@ -14,19 +14,21 @@ export async function POST(request: Request) {
   const form = await request.formData();
   const file = form.get("file");
   if (!(file instanceof File)) {
-    return NextResponse.json({ error: "Video file is required" }, { status: 400 });
+    return NextResponse.json({ error: "File is required" }, { status: 400 });
   }
 
   if (!allowedTypes.has(file.type)) {
-    return NextResponse.json({ error: "Only MP4, WebM or OGG videos are allowed" }, { status: 400 });
+    return NextResponse.json({ error: "Only image files or MP4, WebM, OGG videos are allowed" }, { status: 400 });
   }
 
   const bytes = Buffer.from(await file.arrayBuffer());
-  const ext = file.name.split(".").pop()?.toLowerCase() || "mp4";
+  const isImage = file.type.startsWith("image/");
+  const ext = file.name.split(".").pop()?.toLowerCase() || (isImage ? "jpg" : "mp4");
   const safeName = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
-  const uploadDir = path.join(process.cwd(), "public", "uploads", "videos");
+  const folder = isImage ? "images" : "videos";
+  const uploadDir = path.join(process.cwd(), "public", "uploads", folder);
   await mkdir(uploadDir, { recursive: true });
   await writeFile(path.join(uploadDir, safeName), bytes);
 
-  return NextResponse.json({ url: `/uploads/videos/${safeName}` });
+  return NextResponse.json({ url: `/uploads/${folder}/${safeName}`, type: isImage ? "IMAGE" : "VIDEO" });
 }

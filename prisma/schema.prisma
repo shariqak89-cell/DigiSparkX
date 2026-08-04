@@ -180,6 +180,8 @@ model BlogPost {
   categories    Json
   tags          Json
   featuredImage String?
+  featuredVideo String?
+  mediaType     String?       @default("IMAGE")
   authorId      String?
   author        User?         @relation(fields: [authorId], references: [id])
   createdAt     DateTime      @default(now())

@@ -21,7 +21,7 @@ export default async function DashboardPage() {
           <div>
             <span className="eyebrow">Admin Panel</span>
             <h1 className="mt-4 text-5xl font-black">DigiSparkX Command Center</h1>
-            <p className="mt-3 text-slate-600 dark:text-slate-300">Manage content, leads, services, academy, reviews, SEO and settings from one dashboard.</p>
+            <p className="mt-3 text-slate-600 dark:text-slate-300">Manage content, leads, services, courses, reviews, SEO and settings from one dashboard.</p>
           </div>
           <Link href="/login" className="btn btn-secondary">Secure Login</Link>
         </div>

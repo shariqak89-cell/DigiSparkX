@@ -7,7 +7,7 @@ digisparkx/
     dashboard/
     about/
     services/
-    academy/
+    courses/
     portfolio/
     projects/
     testimonials/

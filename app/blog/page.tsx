@@ -23,7 +23,11 @@ export default async function BlogPage() {
         <div className="grid gap-5 lg:grid-cols-2">
           {blogPosts.map((post) => (
             <article key={post.slug} className="premium-card overflow-hidden">
-              {post.featuredImage && <Image src={post.featuredImage} alt={post.title} width={1000} height={620} className="h-64 w-full object-cover" />}
+              {(post as any).featuredVideo ? (
+                <video src={(post as any).featuredVideo} className="h-64 w-full object-cover" controls preload="metadata" />
+              ) : post.featuredImage ? (
+                <Image src={post.featuredImage} alt={post.title} width={1000} height={620} className="h-64 w-full object-cover" />
+              ) : null}
               <div className="p-6">
                 <div className="flex flex-wrap gap-2">
                   {asStringArray(post.categories, ["AI"]).map((category) => <span key={category} className="rounded-full bg-orange-500/10 px-3 py-1 text-xs font-black text-orange-600">{category}</span>)}

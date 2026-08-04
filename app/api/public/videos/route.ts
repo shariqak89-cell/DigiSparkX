@@ -1,12 +1,8 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/db";
+import { getPublishedCourseVideos } from "@/lib/published-content";
 
 export async function GET() {
-  const data = await prisma.courseVideo.findMany({
-    where: { status: "PUBLISHED" },
-    orderBy: [{ order: "asc" }, { createdAt: "desc" }],
-    take: 30
-  });
+  const data = await getPublishedCourseVideos();
 
   return NextResponse.json({ data });
 }

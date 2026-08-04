@@ -131,7 +131,7 @@ function Footer() {
         <div>
           <h3>Explore</h3>
           <Link href="/about">Our story</Link>
-          <Link href="/academy">AI programs</Link>
+          <Link href="/courses">Courses</Link>
           <Link href="/services">All services</Link>
           <Link href="/blog">Blog</Link>
           <Link href="/contact">Request a quote</Link>

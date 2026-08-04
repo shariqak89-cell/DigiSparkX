@@ -30,7 +30,11 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
         <span className="eyebrow">DigiSparkX Blog</span>
         <h1 className="mt-5 text-5xl font-black tracking-tight">{post.title}</h1>
         <p className="mt-4 text-xl text-slate-600 dark:text-slate-300">{post.excerpt}</p>
-        {post.featuredImage && <Image src={post.featuredImage} alt={post.title} width={1200} height={720} className="my-8 rounded-[34px] object-cover shadow-blueglow" />}
+        {(post as any).featuredVideo ? (
+          <video src={(post as any).featuredVideo} className="my-8 w-full rounded-[34px] object-cover shadow-blueglow" controls preload="metadata" />
+        ) : post.featuredImage ? (
+          <Image src={post.featuredImage} alt={post.title} width={1200} height={720} className="my-8 rounded-[34px] object-cover shadow-blueglow" />
+        ) : null}
         <div className="premium-card p-8 text-lg leading-9 text-slate-700 dark:text-slate-200">
           {post.content.split("\n").map((paragraph) => <p key={paragraph} className="mb-5">{paragraph}</p>)}
         </div>

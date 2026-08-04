@@ -9,7 +9,7 @@ The website uses PostgreSQL with Prisma ORM.
 - `PopupLead` — timed popup form submissions.
 - `Review` — user ratings and testimonials with moderation.
 - `Service` — client services with features, process and FAQs.
-- `Course` — academy courses.
+- `Course` — courses.
 - `PortfolioItem` — portfolio and project case studies.
 - `BlogPost` — CMS blog posts with SEO fields and scheduling support.
 - `MediaAsset` — media library.

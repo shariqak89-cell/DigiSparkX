@@ -16,12 +16,12 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(absoluteUrl()),
   title: {
-    default: "DigiSparkX | Digital Services & Academy",
+    default: "DigiSparkX | Digital Services & Courses",
     template: "%s | DigiSparkX"
   },
   description: "DigiSparkX provides professional websites, software, branding, digital marketing, AI automation and practical digital skills training.",
   applicationName: "DigiSparkX",
-  keywords: ["DigiSparkX", "website development", "digital marketing", "academy", "AI automation", "graphic design", "Delhi"],
+  keywords: ["DigiSparkX", "website development", "digital marketing", "courses", "AI automation", "graphic design", "Delhi"],
   authors: [{ name: "DigiSparkX" }],
   creator: "DigiSparkX",
   publisher: "DigiSparkX",
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
     url: absoluteUrl(),
     siteName: company.name,
     title: "DigiSparkX | Grow Smarter, Go Digital",
-    description: "A premium digital services and academy company for businesses and learners.",
+    description: "A premium digital services and courses company for businesses and learners.",
     images: [{ url: company.logo, width: 1200, height: 1200, alt: "DigiSparkX logo" }]
   },
   twitter: {
     card: "summary_large_image",
     title: "DigiSparkX | Grow Smarter, Go Digital",
-    description: "Digital services, academy, automation, branding and web development.",
+    description: "Digital services, courses, automation, branding and web development.",
     images: [company.logo]
   },
   icons: {

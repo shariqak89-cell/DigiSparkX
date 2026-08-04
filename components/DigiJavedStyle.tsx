@@ -8,7 +8,7 @@ import {
   Palette, Phone, Quote, Search, Send, ShoppingCart, Sparkles,
   Store, Workflow, X
 } from "lucide-react";
-import { company, services } from "@/data/content";
+import { company } from "@/data/content";
 
 export const whatsapp = `https://wa.me/919899284296?text=${encodeURIComponent("Hello DigiSparkX, I would like a digital project quote.")}`;
 
@@ -30,7 +30,41 @@ export const digiServices: DigiService[] = [
   ["Mobile Apps", "App experiences for business, education, commerce and operations.", "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=80", Store],
   ["Video Editing", "Reels, ads, course videos and brand storytelling for digital platforms.", "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=900&q=80", Film],
   ["Hosting & Domain", "Domain setup, hosting guidance, SSL, maintenance and support.", "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80", Globe2],
-  ["Website Maintenance", "Updates, backups, speed checks, care plans and ongoing improvements.", "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80", Workflow]
+  ["Website Maintenance", "Updates, backups, speed checks, care plans and ongoing improvements.", "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80", Workflow],
+  ["AI Chatbots", "Website, WhatsApp and support chatbots for smarter lead handling.", "https://images.unsplash.com/photo-1676299081847-824916de030a?auto=format&fit=crop&w=900&q=80", Bot],
+  ["Business CRM Setup", "Lead pipelines, customer records, reminders and sales tracking.", "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=80", Workflow],
+  ["ERP Systems", "Inventory, billing, operations and reporting systems for growing teams.", "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80", BriefcaseBusiness],
+  ["Portfolio Websites", "Personal, creator and professional portfolio sites with premium presentation.", "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80", Code2],
+  ["Landing Pages", "High-converting campaign pages for ads, products and launches.", "https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=900&q=80", LineChart],
+  ["Social Media Management", "Monthly content plans, captions, designs, reels ideas and posting support.", "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=900&q=80", Megaphone],
+  ["Reels & Shorts Editing", "Short-form videos for Instagram, YouTube Shorts and Facebook reels.", "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=900&q=80", Film],
+  ["YouTube Channel Setup", "Channel branding, thumbnails, SEO descriptions and upload workflow.", "https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=900&q=80", Film],
+  ["Thumbnail Design", "Clickable YouTube and social thumbnails with clear visual hierarchy.", "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=900&q=80", ImageIcon],
+  ["Canva Training", "Practical Canva design lessons for students, creators and business owners.", "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=900&q=80", Palette],
+  ["Photoshop Training", "Photo editing, poster design, social creatives and professional workflows.", "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=900&q=80", Palette],
+  ["Illustrator Training", "Vector artwork, logos, icons, patterns and brand assets.", "https://images.unsplash.com/photo-1626785774625-0b1c2c4c4c2b?auto=format&fit=crop&w=900&q=80", Palette],
+  ["WordPress Websites", "WordPress business websites, blogs, landing pages and maintenance.", "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=900&q=80", Globe2],
+  ["No-Code Automation", "Zapier-style workflows, forms, sheets, emails and task automation.", "https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=900&q=80", Workflow],
+  ["AI Image Generation", "Creative AI visuals for ads, posts, concepts and product campaigns.", "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?auto=format&fit=crop&w=900&q=80", Sparkles],
+  ["AI Video Creation", "AI-assisted videos, scripts, scenes and digital campaign content.", "https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=900&q=80", Film],
+  ["Product Photography", "Styled product images, digital enhancement and e-commerce presentation.", "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80", ImageIcon],
+  ["Business Profile Design", "Professional company profiles, pitch decks and presentation layouts.", "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=80", BriefcaseBusiness],
+  ["Brochure & Catalogue Design", "Digital brochures, catalogues and marketing documents for brands.", "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=900&q=80", ImageIcon],
+  ["Banner & Poster Design", "Event, offer, outdoor, social and promotional banner designs.", "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80", ImageIcon],
+  ["Book Cover Design", "Professional covers for books, eBooks, course material and reports.", "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80", Palette],
+  ["eBook Formatting", "Clean eBook layout, formatting, cover-ready structure and publishing support.", "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80", Globe2],
+  ["Course Video Production", "Course planning, recording support, editing and learning content packaging.", "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80", Film],
+  ["Online Course Setup", "Course pages, LMS setup, payment-ready flow and student onboarding.", "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=900&q=80", Globe2],
+  ["Occasion Song Creation", "Custom songs for weddings, birthdays, anniversaries and special events.", "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80", Sparkles],
+  ["Wedding Digital Invites", "Animated invites, e-cards, videos and social-ready invitation designs.", "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80", Sparkles],
+  ["Birthday Creative Packages", "Birthday posters, invitation videos, photo edits and celebration creatives.", "https://images.unsplash.com/photo-1464349153735-7db50ed83c84?auto=format&fit=crop&w=900&q=80", Sparkles],
+  ["Event Branding", "Complete branding for seminars, workshops, launches and celebrations.", "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=80", Megaphone],
+  ["Email Marketing", "Newsletter design, campaign setup, automation and audience communication.", "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=900&q=80", Mail],
+  ["Analytics & Tracking", "Google Analytics, pixels, conversion tracking and reporting dashboards.", "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80", LineChart],
+  ["Cybersecurity Basics", "Security checks, SSL, safe forms, backups and website hardening guidance.", "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=900&q=80", Workflow],
+  ["Domain Email Setup", "Professional business email, DNS records and deliverability setup.", "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=80", Mail],
+  ["Startup Launch Kit", "Logo, website, landing page, pitch profile and launch creatives in one package.", "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=900&q=80", Sparkles],
+  ["Much More Digital Solutions", "Tell us your idea; we can plan, design, develop, market, automate and improve it.", "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80", Sparkles]
 ];
 
 export function PageHero({ eyebrow, title, text }: { eyebrow: string; title: string; text: string }) {
@@ -98,7 +132,7 @@ export function DigiContactForm({ compact = false }: { compact?: boolean }) {
           <option>AI for Schools & Colleges</option>
           <option>Digital Products</option>
           <option>General Inquiry</option>
-          {services.slice(0, 20).map((s) => <option key={s.slug}>{s.title}</option>)}
+          {digiServices.map(([title]) => <option key={title}>{title}</option>)}
         </select>
       </label>
       {!compact && (

@@ -1,0 +1,3 @@
+ALTER TABLE "BlogPost"
+ADD COLUMN "featuredVideo" TEXT,
+ADD COLUMN "mediaType" TEXT DEFAULT 'IMAGE';

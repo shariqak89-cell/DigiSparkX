@@ -1,6 +1,6 @@
 import { CourseCard } from "@/components/Cards";
 import { QuoteBand } from "@/components/DigiJavedStyle";
-import { YouTubeSlider } from "@/components/YouTubeSlider";
+import { YouTubeGrid } from "@/components/YouTubeSlider";
 import { courses } from "@/data/content";
 import { getPublishedCourseVideos } from "@/lib/published-content";
 
@@ -37,8 +37,8 @@ export default async function CoursesPage() {
 
       <section className="section videos">
         <div className="shell">
-          <div className="section-head"><div><span className="eyebrow pink">Learning videos</span><h2>Watch DigiSparkX lessons and creator classes.</h2><p>Videos from the DigiSparkX YouTube channel and backend uploads appear here.</p></div></div>
-          <YouTubeSlider videos={videos} />
+          <div className="section-head"><div><span className="eyebrow pink">Learning videos</span><h2>Watch DigiSparkX lessons and creator classes.</h2><p>Courses page par videos clean grid cards mein show honge. Homepage par animated slider rahega.</p></div></div>
+          <YouTubeGrid videos={videos} />
         </div>
       </section>
 

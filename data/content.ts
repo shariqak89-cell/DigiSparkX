@@ -32,7 +32,6 @@ export const company = {
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
-  { href: "/academy", label: "Academy" },
   { href: "/courses", label: "Courses" },
   { href: "/services", label: "Services" },
   { href: "/blog", label: "Blog" },
@@ -55,7 +54,7 @@ export const allLinks = [
 export const stats = [
   { value: "35+", label: "Years business legacy" },
   { value: "120+", label: "Digital & print clients served" },
-  { value: "40+", label: "Skills taught in academy" },
+  { value: "40+", label: "Professional skills taught" },
   { value: "99%", label: "Quality-first delivery mindset" }
 ];
 
@@ -286,7 +285,7 @@ export const portfolioItems = [
     featured: true
   },
   {
-    title: "Academy Growth Portal",
+    title: "Course Growth Portal",
     category: "Education",
     description: "Course landing pages, lead capture, admin workflows and student communication assets.",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
@@ -326,7 +325,7 @@ export const portfolioItems = [
 export const testimonials = [
   { name: "Ayesha Khan", role: "Founder", rating: 5, text: "Their design sense is sharp and the communication was very clear. The final website felt premium." },
   { name: "Rahul Mehra", role: "Retail Owner", rating: 5, text: "DigiSparkX helped us with website, creatives and marketing direction in one place." },
-  { name: "Sana Ali", role: "Student", rating: 5, text: "The academy training felt practical. We worked on real examples, not only theory." }
+  { name: "Sana Ali", role: "Student", rating: 5, text: "The course training felt practical. We worked on real examples, not only theory." }
 ];
 
 export const pricing = [
@@ -353,13 +352,13 @@ export const blogPosts = [
     slug: "how-students-can-build-real-digital-skills",
     title: "How Students Can Build Real Digital Skills",
     excerpt: "The fastest way to learn is by working on practical projects, real tools and honest feedback.",
-    content: "Digital education becomes powerful when students learn by doing. DigiSparkX Academy focuses on practical exercises, professional tools, portfolio building and mentorship so learners can gain confidence for real client work.",
+    content: "Digital education becomes powerful when students learn by doing. DigiSparkX courses focus on practical exercises, professional tools, portfolio building and mentorship so learners can gain confidence for real client work.",
     status: "PUBLISHED" as const,
     publishedAt: new Date(),
-    categories: ["Academy", "Careers"],
-    tags: ["students", "skills", "academy"],
+    categories: ["Courses", "Careers"],
+    tags: ["students", "skills", "courses"],
     featuredImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-    seoTitle: "Build Real Digital Skills | DigiSparkX Academy",
+    seoTitle: "Build Real Digital Skills | DigiSparkX Courses",
     seoDescription: "Practical learning approach for website development, marketing, design and AI skills."
   }
 ];
@@ -417,9 +416,9 @@ export const youtubeVideos = [
 ];
 
 export const faqs = [
-  { q: "Is DigiSparkX a service company or academy?", a: "Both. Clients can hire DigiSparkX for professional digital services, and learners can join DigiSparkX Academy for practical skill training." },
+  { q: "Is DigiSparkX a service company or training platform?", a: "Both. Clients can hire DigiSparkX for professional digital services, and learners can join DigiSparkX courses for practical skill training." },
   { q: "Can I request a custom website or software?", a: "Yes. We build websites, web apps, CRM, ERP systems, e-commerce platforms and automation tools." },
-  { q: "Do you provide certificates for courses?", a: "Yes, academy courses include certificates after completion requirements are met." },
+  { q: "Do you provide certificates for courses?", a: "Yes, selected DigiSparkX courses include certificates after completion requirements are met." },
   { q: "Will contact form submissions go to email and database?", a: "Yes. With SMTP and PostgreSQL environment variables configured, forms send email and store records securely." },
   { q: "Can the admin edit content without code?", a: "Yes. The admin dashboard and CMS APIs are structured for managing services, courses, portfolio, testimonials, blogs, leads and settings." }
 ];

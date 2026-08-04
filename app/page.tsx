@@ -95,7 +95,7 @@ export default async function HomePage() {
         <div className="shell">
           <div className="section-head">
             <div><span className="eyebrow pink">What you will learn</span><h2>Practical AI skills that create real value.</h2><p>From prompts and content to automation, business workflows and ethical AI.</p></div>
-            <Link className="text-link" href="/academy">Explore programs <ArrowRight size={17} /></Link>
+            <Link className="text-link" href="/courses">Explore courses <ArrowRight size={17} /></Link>
           </div>
           <div className="pill-list">{learn.map((item) => <span key={item}>{item}</span>)}</div>
         </div>

@@ -57,6 +57,8 @@ export function CmsManager({ module }: { module: string }) {
     const titleValue = String(formData.get("title") || "");
     const status = String(formData.get("status") || "PUBLISHED");
     let uploadedVideoUrl = "";
+    let uploadedImageUrl = "";
+    let uploadedBlogVideoUrl = "";
     const videoFile = formData.get("videoFile");
     if (isVideo && videoFile instanceof File && videoFile.size > 0) {
       setMessage("Uploading video...");
@@ -70,6 +72,32 @@ export function CmsManager({ module }: { module: string }) {
       }
       uploadedVideoUrl = uploadJson.url || "";
     }
+    const blogImageFile = formData.get("blogImageFile");
+    if (isBlog && blogImageFile instanceof File && blogImageFile.size > 0) {
+      setMessage("Uploading blog image...");
+      const uploadForm = new FormData();
+      uploadForm.set("file", blogImageFile);
+      const uploadRes = await fetch("/api/admin/upload", { method: "POST", body: uploadForm });
+      const uploadJson = await uploadRes.json().catch(() => ({}));
+      if (!uploadRes.ok) {
+        setMessage(uploadJson.error || "Blog image upload failed.");
+        return;
+      }
+      uploadedImageUrl = uploadJson.url || "";
+    }
+    const blogVideoFile = formData.get("blogVideoFile");
+    if (isBlog && blogVideoFile instanceof File && blogVideoFile.size > 0) {
+      setMessage("Uploading blog video...");
+      const uploadForm = new FormData();
+      uploadForm.set("file", blogVideoFile);
+      const uploadRes = await fetch("/api/admin/upload", { method: "POST", body: uploadForm });
+      const uploadJson = await uploadRes.json().catch(() => ({}));
+      if (!uploadRes.ok) {
+        setMessage(uploadJson.error || "Blog video upload failed.");
+        return;
+      }
+      uploadedBlogVideoUrl = uploadJson.url || "";
+    }
     const videoUrlValue = String(formData.get("youtubeUrl") || "");
     const payload = isBlog
       ? {
@@ -81,7 +109,9 @@ export function CmsManager({ module }: { module: string }) {
           publishedAt: status === "PUBLISHED" ? new Date().toISOString() : null,
           categories: String(formData.get("categories") || "AI").split(",").map((x) => x.trim()).filter(Boolean),
           tags: String(formData.get("tags") || "ai").split(",").map((x) => x.trim()).filter(Boolean),
-          featuredImage: String(formData.get("featuredImage") || ""),
+          featuredImage: uploadedImageUrl || String(formData.get("featuredImage") || ""),
+          featuredVideo: uploadedBlogVideoUrl || String(formData.get("featuredVideo") || ""),
+          mediaType: uploadedBlogVideoUrl || String(formData.get("featuredVideo") || "") ? "VIDEO" : "IMAGE",
           seoTitle: String(formData.get("seoTitle") || titleValue),
           seoDescription: String(formData.get("seoDescription") || formData.get("excerpt") || "")
         }
@@ -127,7 +157,7 @@ export function CmsManager({ module }: { module: string }) {
       <div className="premium-card p-6">
         <h2 className="text-2xl font-black">{title}</h2>
         <p className="mt-2 text-slate-600 dark:text-slate-300">
-          {isBlog ? "Add blog posts here. Published posts appear on the Blog page." : "Add YouTube course links here. Published videos appear in the homepage animated slider."}
+          {isBlog ? "Add blog posts here with text, image or video. Published posts appear on the Blog page." : "Add YouTube course links or upload videos here. Published videos appear on the homepage slider and courses grid."}
         </p>
         <form action={submit} className="mt-6 grid gap-4">
           <input className="cms-input" name="title" required placeholder={isBlog ? "Blog title" : "Video title"} />
@@ -137,6 +167,15 @@ export function CmsManager({ module }: { module: string }) {
               <textarea className="cms-input min-h-24" name="excerpt" required placeholder="Short excerpt" />
               <textarea className="cms-input min-h-44" name="content" required placeholder="Full blog content" />
               <input className="cms-input" name="featuredImage" placeholder="Featured image URL" />
+              <label className="grid gap-2 text-sm font-black text-slate-600 dark:text-slate-300">
+                Upload blog image
+                <input className="cms-input" name="blogImageFile" type="file" accept="image/jpeg,image/png,image/webp,image/gif" />
+              </label>
+              <input className="cms-input" name="featuredVideo" placeholder="Featured video URL" />
+              <label className="grid gap-2 text-sm font-black text-slate-600 dark:text-slate-300">
+                Upload blog video
+                <input className="cms-input" name="blogVideoFile" type="file" accept="video/mp4,video/webm,video/ogg" />
+              </label>
               <input className="cms-input" name="categories" placeholder="Categories comma separated" />
               <input className="cms-input" name="tags" placeholder="Tags comma separated" />
               <input className="cms-input" name="seoTitle" placeholder="SEO title" />
