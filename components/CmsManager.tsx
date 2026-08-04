@@ -14,6 +14,7 @@ function slugify(value: string) {
 }
 
 function youtubeId(url: string) {
+  if (!url.trim()) return "";
   const patterns = [/youtu\.be\/([^?&/]+)/, /youtube\.com\/watch\?v=([^?&]+)/, /youtube\.com\/embed\/([^?&/]+)/];
   for (const pattern of patterns) {
     const match = url.match(pattern);
@@ -55,6 +56,21 @@ export function CmsManager({ module }: { module: string }) {
     setMessage("Saving...");
     const titleValue = String(formData.get("title") || "");
     const status = String(formData.get("status") || "PUBLISHED");
+    let uploadedVideoUrl = "";
+    const videoFile = formData.get("videoFile");
+    if (isVideo && videoFile instanceof File && videoFile.size > 0) {
+      setMessage("Uploading video...");
+      const uploadForm = new FormData();
+      uploadForm.set("file", videoFile);
+      const uploadRes = await fetch("/api/admin/upload", { method: "POST", body: uploadForm });
+      const uploadJson = await uploadRes.json().catch(() => ({}));
+      if (!uploadRes.ok) {
+        setMessage(uploadJson.error || "Video upload failed.");
+        return;
+      }
+      uploadedVideoUrl = uploadJson.url || "";
+    }
+    const videoUrlValue = String(formData.get("youtubeUrl") || "");
     const payload = isBlog
       ? {
           title: titleValue,
@@ -72,8 +88,10 @@ export function CmsManager({ module }: { module: string }) {
       : {
           title: titleValue,
           description: String(formData.get("description") || ""),
-          youtubeUrl: String(formData.get("youtubeUrl") || ""),
-          youtubeId: youtubeId(String(formData.get("youtubeUrl") || "")),
+          youtubeUrl: videoUrlValue,
+          youtubeId: youtubeId(videoUrlValue),
+          videoFileUrl: uploadedVideoUrl || String(formData.get("videoFileUrl") || ""),
+          source: uploadedVideoUrl ? "UPLOAD" : "YOUTUBE",
           category: String(formData.get("category") || "Course Video"),
           status,
           order: Number(formData.get("order") || 0)
@@ -126,7 +144,12 @@ export function CmsManager({ module }: { module: string }) {
             </>
           ) : (
             <>
-              <input className="cms-input" name="youtubeUrl" required placeholder="YouTube video URL" />
+              <input className="cms-input" name="youtubeUrl" placeholder="YouTube video URL" />
+              <input className="cms-input" name="videoFileUrl" placeholder="Or direct video file URL" />
+              <label className="grid gap-2 text-sm font-black text-slate-600 dark:text-slate-300">
+                Upload course video
+                <input className="cms-input" name="videoFile" type="file" accept="video/mp4,video/webm,video/ogg" />
+              </label>
               <textarea className="cms-input min-h-24" name="description" placeholder="Video description" />
               <input className="cms-input" name="category" placeholder="Category e.g. AI Course" />
               <input className="cms-input" name="order" type="number" placeholder="Order" />

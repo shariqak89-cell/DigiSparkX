@@ -5,6 +5,8 @@ CREATE TABLE "CourseVideo" (
     "description" TEXT,
     "youtubeUrl" TEXT NOT NULL,
     "youtubeId" TEXT NOT NULL,
+    "videoFileUrl" TEXT,
+    "source" TEXT NOT NULL DEFAULT 'YOUTUBE',
     "category" TEXT,
     "status" "PublishStatus" NOT NULL DEFAULT 'PUBLISHED',
     "order" INTEGER NOT NULL DEFAULT 0,

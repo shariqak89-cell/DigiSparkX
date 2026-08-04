@@ -5,6 +5,8 @@ type Video = {
   description?: string | null;
   youtubeUrl: string;
   youtubeId: string;
+  videoFileUrl?: string | null;
+  source?: string | null;
   category?: string | null;
 };
 
@@ -18,7 +20,11 @@ export function YouTubeSlider({ videos }: { videos: Video[] }) {
         {loop.map((video, index) => (
           <a key={`${video.youtubeId}-${index}`} className="youtube-card" href={video.youtubeUrl} target="_blank" rel="noreferrer">
             <span className="youtube-thumb">
-              <img src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`} alt={video.title} loading="lazy" />
+              {video.videoFileUrl ? (
+                <video src={video.videoFileUrl} muted loop playsInline preload="metadata" />
+              ) : (
+                <img src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`} alt={video.title} loading="lazy" />
+              )}
               <span><PlayCircle size={38} fill="currentColor" /></span>
             </span>
             <small>{video.category || "Course Video"}</small>

@@ -33,6 +33,7 @@ export const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/academy", label: "Academy" },
+  { href: "/courses", label: "Courses" },
   { href: "/services", label: "Services" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" }
@@ -365,25 +366,53 @@ export const blogPosts = [
 
 export const youtubeVideos = [
   {
-    title: "AI Foundation Demo Class",
-    description: "A practical introduction to AI tools, prompts and real-world learning.",
-    youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    youtubeId: "dQw4w9WgXcQ",
-    category: "AI Course"
+    title: "Best FREE AI Video Generator 2026",
+    description: "AI video generation tools and practical workflow insights.",
+    youtubeUrl: "https://www.youtube.com/watch?v=bSnjYyp27V4",
+    youtubeId: "bSnjYyp27V4",
+    category: "AI Video"
   },
   {
-    title: "Prompt Engineering Workflow",
-    description: "Learn how structured prompts improve productivity and business output.",
-    youtubeUrl: "https://www.youtube.com/watch?v=jNQXAC9IVRw",
-    youtubeId: "jNQXAC9IVRw",
-    category: "Prompt Engineering"
+    title: "Create Viral 3D AI Images from Your Photo",
+    description: "Learn how to create professional 3D AI images from photos.",
+    youtubeUrl: "https://www.youtube.com/watch?v=NV6EA7CMmo8",
+    youtubeId: "NV6EA7CMmo8",
+    category: "AI Design"
   },
   {
-    title: "Digital Marketing with AI",
-    description: "How AI helps with content, campaigns, analysis and growth.",
-    youtubeUrl: "https://www.youtube.com/watch?v=ysz5S6PUM-U",
-    youtubeId: "ysz5S6PUM-U",
-    category: "Digital Marketing"
+    title: "Extract Any Content from YouTube Videos with AI",
+    description: "Use AI to understand and extract useful content from videos.",
+    youtubeUrl: "https://www.youtube.com/watch?v=3Q2TPyJdfcI",
+    youtubeId: "3Q2TPyJdfcI",
+    category: "AI Workflow"
+  },
+  {
+    title: "Welcome to DG Spark X",
+    description: "Your future starts with the right skills.",
+    youtubeUrl: "https://www.youtube.com/watch?v=djt_TrHDOYk",
+    youtubeId: "djt_TrHDOYk",
+    category: "DigiSparkX"
+  },
+  {
+    title: "Learn ChatGPT from Zero - Day 1",
+    description: "Complete beginner series with Mentor Mohd Javed & Sufia.",
+    youtubeUrl: "https://www.youtube.com/watch?v=dIP4k-JQxg4",
+    youtubeId: "dIP4k-JQxg4",
+    category: "ChatGPT"
+  },
+  {
+    title: "Google Flow AI Se Apna AI Tool Kaise Banaye",
+    description: "No-code AI tool and YouTube automation workflow.",
+    youtubeUrl: "https://www.youtube.com/watch?v=UkTtJ16k22w",
+    youtubeId: "UkTtJ16k22w",
+    category: "No Code AI"
+  },
+  {
+    title: "YouTube Grow Ka Secret",
+    description: "Javed Sir and Fabiha's creator class.",
+    youtubeUrl: "https://www.youtube.com/watch?v=fJ7v-BKjPZo",
+    youtubeId: "fJ7v-BKjPZo",
+    category: "Creator Class"
   }
 ];
 

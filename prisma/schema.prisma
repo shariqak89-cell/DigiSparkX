@@ -195,6 +195,8 @@ model CourseVideo {
   description String?
   youtubeUrl  String
   youtubeId   String
+  videoFileUrl String?
+  source      String        @default("YOUTUBE")
   category    String?
   status      PublishStatus @default(PUBLISHED)
   order       Int           @default(0)
