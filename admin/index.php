@@ -206,7 +206,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
         <article class="saved-blog">
           <div>
             <h3><?php echo h((string)($p['title'] ?? 'Untitled')); ?></h3>
-            <p><?php echo h((string)($p['category'] ?? '')); ?> · <?php echo h((string)($p['date'] ?? '')); ?></p>
+            <p><?php echo h((string)($p['category'] ?? '')); ?> &middot; <?php echo h((string)($p['date'] ?? '')); ?></p>
           </div>
           <div class="actions">
             <a class="btn edit-btn" href="/admin/?edit=<?php echo (int)$i; ?>">Edit</a>
