@@ -93,7 +93,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_index'])) {
     }
 }
 
+$editIndex = isset($_GET['edit']) ? (int)$_GET['edit'] : -1;
+$editPost = ($editIndex >= 0 && isset($posts[$editIndex]) && is_array($posts[$editIndex])) ? $posts[$editIndex] : null;
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
+    $postIndex = isset($_POST['edit_index']) && $_POST['edit_index'] !== '' ? (int)$_POST['edit_index'] : -1;
+    $existingPost = ($postIndex >= 0 && isset($posts[$postIndex]) && is_array($posts[$postIndex])) ? $posts[$postIndex] : [];
     $uploadedImage = '';
     if (!empty($_FILES['image_file']['tmp_name']) && is_uploaded_file($_FILES['image_file']['tmp_name'])) {
         $uploadDir = dirname(__DIR__) . '/uploads/blog';
@@ -111,17 +116,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
         }
     }
 
+    $imageValue = trim((string)($_POST['image'] ?? ''));
     $post = [
         'title' => trim((string)($_POST['title'] ?? '')),
         'category' => trim((string)($_POST['category'] ?? 'DigiSparkX')),
         'date' => trim((string)($_POST['date'] ?? date('Y-m-d'))),
-        'image' => $uploadedImage ?: trim((string)($_POST['image'] ?? '')),
+        'image' => $uploadedImage ?: ($imageValue !== '' ? $imageValue : (string)($existingPost['image'] ?? '')),
         'video' => trim((string)($_POST['video'] ?? '')),
         'excerpt' => trim((string)($_POST['excerpt'] ?? '')),
         'content' => trim((string)($_POST['content'] ?? '')),
     ];
 
     if ($post['title'] !== '') {
+        if ($postIndex >= 0 && isset($posts[$postIndex])) {
+            $posts[$postIndex] = $post;
+            save_posts($blogFile, $posts);
+            header('Location: /admin/?updated=1');
+            exit;
+        }
         array_unshift($posts, $post);
         save_posts($blogFile, $posts);
         header('Location: /admin/?saved=1');
@@ -146,8 +158,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
     .ok{color:#147a31;font-weight:900}
     .saved-blog{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}
     .saved-blog h3{margin-bottom:6px}
+    .actions{display:flex;gap:10px;align-items:center}
+    .edit-btn{background:linear-gradient(135deg,#0b2f6b,#0ca7d2);min-width:110px}
     .delete-btn{background:linear-gradient(135deg,#b42318,#ff4d4d);min-width:120px}
-    @media(max-width:720px){.grid{grid-template-columns:1fr}.top,.saved-blog{display:block}.delete-btn{width:100%;margin-top:10px}}
+    @media(max-width:720px){.grid{grid-template-columns:1fr}.top,.saved-blog{display:block}.actions{display:block}.edit-btn,.delete-btn{width:100%;margin-top:10px}}
   </style>
 </head>
 <body>
@@ -161,20 +175,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
     </div>
 
     <?php if (isset($_GET['saved'])) echo '<p class="ok">Blog save ho gaya. Website par show ho jayega.</p>'; ?>
+    <?php if (isset($_GET['updated'])) echo '<p class="ok">Blog update ho gaya. Website par changes show ho jayenge.</p>'; ?>
     <?php if (isset($_GET['deleted'])) echo '<p class="ok">Blog delete ho gaya.</p>'; ?>
 
     <form class="card" method="post" enctype="multipart/form-data">
+      <h2><?php echo $editPost ? 'Edit Blog' : 'Add New Blog'; ?></h2>
+      <?php if ($editPost): ?>
+        <input type="hidden" name="edit_index" value="<?php echo (int)$editIndex; ?>">
+      <?php endif; ?>
       <div class="grid">
-        <label>Title<input name="title" required></label>
-        <label>Category<input name="category" placeholder="AI, Marketing, Course..."></label>
-        <label>Date<input name="date" type="date" value="<?php echo h(date('Y-m-d')); ?>"></label>
-        <label>Image URL<input name="image" placeholder="https://..."></label>
+        <label>Title<input name="title" required value="<?php echo h((string)($editPost['title'] ?? '')); ?>"></label>
+        <label>Category<input name="category" placeholder="AI, Marketing, Course..." value="<?php echo h((string)($editPost['category'] ?? '')); ?>"></label>
+        <label>Date<input name="date" type="date" value="<?php echo h((string)($editPost['date'] ?? date('Y-m-d'))); ?>"></label>
+        <label>Image URL<input name="image" placeholder="https://..." value="<?php echo h((string)($editPost['image'] ?? '')); ?>"></label>
       </div>
       <label>Upload image<input name="image_file" type="file" accept="image/*"></label>
-      <label>YouTube video link<input name="video" placeholder="https://www.youtube.com/watch?v=..."></label>
-      <label>Short description<textarea name="excerpt"></textarea></label>
-      <label>Full blog content<textarea name="content"></textarea></label>
-      <button>Add Blog</button>
+      <label>YouTube video link<input name="video" placeholder="https://www.youtube.com/watch?v=..." value="<?php echo h((string)($editPost['video'] ?? '')); ?>"></label>
+      <label>Short description<textarea name="excerpt"><?php echo h((string)($editPost['excerpt'] ?? '')); ?></textarea></label>
+      <label>Full blog content<textarea name="content"><?php echo h((string)($editPost['content'] ?? '')); ?></textarea></label>
+      <button><?php echo $editPost ? 'Save Changes' : 'Add Blog'; ?></button>
+      <?php if ($editPost): ?><a class="btn" href="/admin/">Cancel Edit</a><?php endif; ?>
     </form>
 
     <section class="card">
@@ -188,10 +208,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
             <h3><?php echo h((string)($p['title'] ?? 'Untitled')); ?></h3>
             <p><?php echo h((string)($p['category'] ?? '')); ?> · <?php echo h((string)($p['date'] ?? '')); ?></p>
           </div>
-          <form method="post" onsubmit="return confirm('Kya aap is blog ko delete karna chahti hain?');">
-            <input type="hidden" name="delete_index" value="<?php echo (int)$i; ?>">
-            <button class="delete-btn" type="submit">Delete</button>
-          </form>
+          <div class="actions">
+            <a class="btn edit-btn" href="/admin/?edit=<?php echo (int)$i; ?>">Edit</a>
+            <form method="post" onsubmit="return confirm('Kya aap is blog ko delete karna chahti hain?');">
+              <input type="hidden" name="delete_index" value="<?php echo (int)$i; ?>">
+              <button class="delete-btn" type="submit">Delete</button>
+            </form>
+          </div>
         </article>
         <hr>
       <?php endforeach; ?>
