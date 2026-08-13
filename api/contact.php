@@ -1,7 +1,10 @@
 <?php
 declare(strict_types=1);
 
-$to = 'digisparkxuniverse@gmail.com';
+$recipients = [
+    'digisparkxuniverse@gmail.com',
+    'digisparkxx@gmail.com',
+];
 $siteName = 'DigiSparkX';
 $dataDir = dirname(__DIR__) . '/private-data';
 if (!is_dir($dataDir)) {
@@ -61,11 +64,21 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $headers[] = 'Reply-To: ' . $email;
 }
 
-$mailSent = @mail($to, $subject, implode("\n", $messageLines), implode("\r\n", $headers));
+$mailSent = false;
+$mailResults = [];
+foreach ($recipients as $recipient) {
+    if (!filter_var($recipient, FILTER_VALIDATE_EMAIL)) {
+        continue;
+    }
+    $sent = @mail($recipient, $subject, implode("\n", $messageLines), implode("\r\n", $headers));
+    $mailResults[$recipient] = $sent;
+    $mailSent = $mailSent || $sent;
+}
 
 $lead = [
     'time' => date('c'),
     'mail_sent' => $mailSent,
+    'mail_results' => $mailResults,
     'ip' => $_SERVER['REMOTE_ADDR'] ?? '',
     'fields' => $fields,
 ];
