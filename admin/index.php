@@ -52,7 +52,7 @@ if (empty($_SESSION['digisparkx_admin'])):
     input,button{width:100%;height:48px;border-radius:12px;border:0;margin-top:12px;padding:0 14px}
     button{background:linear-gradient(135deg,#0b2f6b,#ff7a00);color:#fff;font-weight:900}
     .err{color:#ffd2d2}
-  </style>
+  img{max-width:100%;height:auto}.section{content-visibility:auto;contain-intrinsic-size:1px 720px}</style>
 </head>
 <body>
   <form class="box" method="post">
