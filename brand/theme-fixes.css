@@ -1,0 +1,15 @@
+/* Shared visual fixes for every DigiSparkX page. */
+html.dark .logo img,
+html.dark .footer img,
+.dark .logo img,
+.dark .footer img {
+  filter: brightness(0) invert(1) !important;
+}
+
+.header .theme {
+  width: auto !important;
+  min-width: 38px !important;
+  height: 42px !important;
+  min-height: 42px !important;
+  padding: 0 14px !important;
+}
